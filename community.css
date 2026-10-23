@@ -1,0 +1,57 @@
+/* Comunidad educativa — CETPRO Huarmey. Complemento de las hojas existentes. */
+.community-heading-section{padding-top:94px;padding-bottom:0;background:linear-gradient(180deg,#fff 0%,#f3f8fc 100%)}
+.community-lead{display:flex;align-items:end;justify-content:space-between;gap:30px;margin-bottom:32px}
+.community-lead h2,.community-archive-teaser h2{color:#0c2f4e;font-size:clamp(38px,4.8vw,62px);letter-spacing:-.045em;font-weight:900;line-height:1.06;margin:14px 0 18px}
+.community-lead h2 em{font-style:normal;color:#e5a831}.community-lead p{max-width:580px;color:#60788d;line-height:1.75;font-size:15px}
+.community-year-select{display:flex;flex-direction:column;gap:8px;flex-shrink:0;background:#fff;border:1px solid #dfe8f0;box-shadow:0 12px 35px #13365412;padding:17px 21px;border-radius:14px;min-width:185px}
+.community-year-select label,.archive-toolbar label{font-size:10px;text-transform:uppercase;letter-spacing:.15em;font-weight:900;color:#7b8e9f}
+.community-year-select select,.archive-toolbar select,.year-control select{color:#103955;font-size:15px;font-weight:800;background:#fff;border:0;outline:0;cursor:pointer}
+.community-family{min-height:420px;position:relative;overflow:hidden;background:linear-gradient(135deg,#103a5b,#155877);border-radius:25px 25px 0 0;isolation:isolate}
+.community-family-image{position:absolute;inset:0}.community-family-image img{width:100%;height:100%;object-fit:cover;filter:saturate(.96);transition:transform .8s}
+.community-family:hover .community-family-image img{transform:scale(1.035)}
+.community-family:after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,#06213eea 0%,#092b4a8f 49%,#031d3236 100%);pointer-events:none}
+.community-family-shade{position:relative;z-index:1;min-height:420px;max-width:570px;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;color:#fff;padding:55px 56px}
+.community-year-tag{font-size:10px;letter-spacing:.19em;border:1px solid #ffffff7d;border-radius:20px;padding:8px 14px;color:#fbd37c;font-weight:850;background:#04274382}
+.community-family-shade h3{font-size:clamp(30px,3.5vw,46px);line-height:1.12;margin:22px 0 18px;color:white;font-weight:900;letter-spacing:-.04em}
+.community-family-shade p{font-size:15px;color:#dbe9f3;line-height:1.8;margin:0 0 17px}.community-family-shade small{font-size:11px;color:#f5cc78}
+.community-history{background:#f3f8fc}.community-history-grid{display:grid;grid-template-columns:1.25fr 1fr;gap:20px}
+.community-history-grid article{padding:40px 43px;border:1px solid #e3ebf2;background:white;border-radius:18px;position:relative;overflow:hidden;box-shadow:0 16px 48px #14334b09}
+.community-history-grid article:nth-child(2){background:#0e3657;border-color:#0e3657;color:white}
+.community-history-grid article h2{font-size:32px;font-weight:850;margin:16px 0;color:#133552}.community-history-grid article:nth-child(2) h2{color:white}
+.community-history-grid article p{line-height:1.85;color:#60768a;font-size:14px;position:relative;z-index:1}.community-history-grid article:nth-child(2) p{color:#e1edf3}.history-watermark{position:absolute;right:5px;bottom:-72px;font-size:260px;line-height:1;color:#ffffff12}
+.community-people-section .section-head:nth-of-type(1){margin-top:0}.community-directors{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:23px;margin-bottom:28px}
+.community-profile-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:19px}
+.community-profile{background:#fff;border:1px solid #e1e9f2;border-radius:18px;overflow:hidden;box-shadow:0 15px 36px #183e5c0c;transition:box-shadow .3s,transform .3s}
+.community-profile:hover{transform:translateY(-7px);box-shadow:0 20px 45px #123b5b2a}
+.profile-click{display:block;width:100%;height:100%;text-align:left;background:none;border:0;padding:0;cursor:pointer;color:inherit}
+.profile-click:focus-visible,.archive-photo:focus-visible{outline:3px solid #e6ac3b;outline-offset:-4px}
+.profile-photo{height:235px;position:relative;overflow:hidden;background:#0e4c6c}.profile-photo img{width:100%;height:100%;object-fit:cover;transition:transform .65s}
+.community-profile:hover .profile-photo img{transform:scale(1.08)}
+.profile-arrow{position:absolute;bottom:13px;right:13px;width:38px;height:38px;display:grid;place-items:center;background:#f8c354;color:#133652;border-radius:50%;font-size:21px;box-shadow:0 8px 18px #082a4d40}
+.profile-info{padding:23px 21px 21px}.profile-dept{display:block;color:#147c92;text-transform:uppercase;font-size:10px;letter-spacing:.12em;font-weight:900;margin:9px 0}
+.profile-info h3{font-size:18px;line-height:1.35;letter-spacing:-.02em;color:#11334f;font-weight:850;margin:5px 0 9px}
+.profile-info p{color:#687e90;font-size:12px;line-height:1.65;min-height:33px}.profile-more{display:block;margin-top:14px;color:#116b8c;font-size:12px;font-weight:900}
+.community-demo{display:inline-flex;background:#fff6da;color:#8a5d0b;border:1px solid #eddbab;font-weight:900;letter-spacing:.07em;border-radius:30px;padding:5px 9px;font-size:9px}
+.community-divider{height:1px;background:linear-gradient(90deg,transparent,#c8d9e5,transparent);margin:63px 0}
+.community-filterbar{display:flex;align-items:center;justify-content:space-between;gap:15px;margin:0 0 27px}.community-filter-chips{display:flex;gap:8px;flex-wrap:wrap}.staff-count{color:#6e8496;font-size:12px;white-space:nowrap}
+.community-workshop-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}.workshop-card{height:265px;border-radius:17px;position:relative;overflow:hidden;background:#143c55;box-shadow:0 18px 35px #143f601a}
+.workshop-card:after{content:'';position:absolute;inset:15% 0 0;background:linear-gradient(transparent,#05182acb)}.workshop-card img{width:100%;height:100%;object-fit:cover;transition:transform .55s}.workshop-card:hover img{transform:scale(1.07)}
+.workshop-card>span{color:white;position:absolute;bottom:22px;left:20px;right:20px;z-index:1;font-weight:850;font-size:19px}
+.community-dual{display:grid;grid-template-columns:1fr 1fr;gap:40px}.community-dual>div>h2{color:#133650;font-weight:900;letter-spacing:-.035em;font-size:34px;margin:13px 0 26px}.community-stack{display:grid;gap:13px}
+.community-mini-item{background:white;border-radius:13px;border:1px solid #dfe9f2;padding:16px;display:flex;gap:15px;align-items:start}.community-mini-item img{width:86px;height:82px;object-fit:cover;border-radius:10px}
+.community-mini-item>span{width:55px;height:55px;flex:none;background:#fff0cc;display:grid;place-items:center;color:#bd8519;border-radius:12px;font-size:25px}.community-mini-item h3{font-size:17px;font-weight:850;color:#113857;margin:9px 0}.community-mini-item p{font-size:12px;color:#61788c;line-height:1.6}.community-mini-item a{font-size:12px;color:#0c7a91;font-weight:850}
+.community-highlights .empty-state{background:#fff;border:1px dashed #cad9e7;border-radius:17px;padding:27px 14px}.community-highlights .empty-state h3{font-size:18px}
+.archive-teaser-layout{display:grid;grid-template-columns:1fr 1fr;gap:35px;align-items:center}.archive-teaser-layout p{color:#708497;line-height:1.8;margin-bottom:27px;max-width:380px}.archive-teaser-photos{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:11px;height:230px}
+.archive-teaser-photos img{width:100%;height:100%;object-fit:cover;border-radius:13px;box-shadow:0 12px 20px #0e365321}.archive-teaser-photos img:nth-child(2){margin-top:15px;height:calc(100% - 15px)}
+.archive-toolbar{display:flex;gap:15px;align-items:center;margin-bottom:26px}.archive-toolbar select{border:1px solid #d6e4ee;border-radius:9px;padding:12px 17px}.archive-toolbar>span{margin-left:auto;color:#647d91;font-size:12px}
+.community-archive-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}.archive-photo{border:0;text-align:left;background:white;border-radius:15px;box-shadow:0 10px 30px #183c5115;overflow:hidden;padding:0;transition:transform .25s}
+.archive-photo:hover{transform:translateY(-6px)}.archive-photo>img{width:100%;height:200px;object-fit:cover;transition:transform .5s}.archive-photo:hover>img{transform:scale(1.05)}.archive-photo>div{padding:17px}.archive-photo>div>span{display:block;font-size:10px;color:#157c94;font-weight:900;letter-spacing:.08em;text-transform:uppercase}.archive-photo strong{display:block;margin:7px 0 10px;color:#133857;font-size:16px}
+.community-modal-photo img{height:250px;width:100%;object-fit:cover;border-radius:12px}.community-profile-detail p{padding:8px 0;margin:0;line-height:1.7}
+.community-year-admin{display:flex;align-items:center;justify-content:space-between;gap:26px;margin-bottom:20px!important;background:linear-gradient(120deg,#eff9fd,#fff)!important;border:1px solid #d6e8ef!important}
+.community-year-admin h2{color:#0c3f5c;font-weight:900}.community-year-admin p{color:#698095;font-size:12px;max-width:520px}.year-control{display:flex;gap:8px;flex-wrap:wrap}.year-control select{border:1px solid #cbdce9;border-radius:8px;padding:11px 15px;min-width:120px}
+/* Panel con más secciones pero desplazamiento independiente. */
+.admin-side{overflow-y:auto!important;overscroll-behavior:contain}.side-links button{flex-shrink:0}
+@media(max-width:1100px){.community-profile-grid,.community-workshop-grid,.community-archive-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.community-directors{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:800px){.community-lead{align-items:start;flex-direction:column}.community-year-select{width:100%}.community-history-grid,.community-dual,.archive-teaser-layout{grid-template-columns:1fr}.community-family{min-height:350px}.community-family-shade{min-height:350px;padding:35px 30px}.community-filterbar{align-items:start;flex-direction:column}.archive-teaser-photos{height:210px}}
+@media(max-width:560px){.community-heading-section{padding-top:55px}.community-history-grid article{padding:28px 23px}.community-family{border-radius:17px 17px 0 0}.community-family-shade{padding:30px 22px}.community-profile-grid,.community-directors,.community-workshop-grid,.community-archive-grid{grid-template-columns:1fr 1fr;gap:11px}.profile-photo{height:150px}.profile-info{padding:16px 12px}.profile-info h3{font-size:14px}.profile-info p{font-size:11px}.profile-more{font-size:11px}.workshop-card{height:188px}.workshop-card>span{font-size:14px;bottom:13px;left:13px}.archive-photo>img{height:132px}.archive-photo>div{padding:11px}.archive-photo strong{font-size:12px}.community-year-admin{flex-direction:column;align-items:start}.community-lead h2,.community-archive-teaser h2{font-size:35px}}
+@media(max-width:370px){.community-profile-grid,.community-directors{grid-template-columns:1fr}.profile-photo{height:225px}}

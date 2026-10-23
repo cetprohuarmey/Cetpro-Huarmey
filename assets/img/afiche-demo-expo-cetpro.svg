@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 960" role="img" aria-labelledby="t d">
+<title id="t">Afiche de demostración Expo Talento CETPRO 2026</title><desc id="d">Diseño gráfico ilustrativo de un evento ficticio para demostrar la ventana emergente editable.</desc>
+<defs>
+ <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#061f40"/><stop offset=".48" stop-color="#0b5472"/><stop offset="1" stop-color="#092743"/></linearGradient>
+ <linearGradient id="light" x1="0" y1="0" x2="1" y2=".8"><stop stop-color="#fbd875"/><stop offset="1" stop-color="#e9a741"/></linearGradient>
+ <linearGradient id="spark" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#65d6ca"/><stop offset="1" stop-color="#137c96"/></linearGradient>
+ <pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse"><path d="M50 0H0V50" fill="none" stroke="#fff" stroke-opacity=".045"/></pattern>
+</defs>
+<rect width="720" height="960" fill="url(#bg)"/>
+<rect width="720" height="960" fill="url(#grid)"/>
+<circle cx="675" cy="80" r="270" fill="#2ab1b8" opacity=".12"/>
+<circle cx="-120" cy="850" r="320" fill="#65d9c8" opacity=".1"/>
+<circle cx="565" cy="745" r="205" fill="none" stroke="#ffffff" stroke-opacity=".14" stroke-width="3"/>
+<circle cx="565" cy="745" r="280" fill="none" stroke="#ffffff" stroke-opacity=".08" stroke-width="3"/>
+<path d="M50 70 H670" stroke="#b2d7e6" stroke-opacity=".34" stroke-width="2"/>
+<rect x="48" y="105" width="390" height="46" rx="22" fill="#ffffff" opacity=".12" stroke="#ffffff" stroke-opacity=".3"/>
+<text x="73" y="135" fill="#d5f3ee" font-size="20" font-family="Arial,sans-serif" font-weight="bold" letter-spacing="3">EVENTO DE EJEMPLO</text>
+<text x="51" y="247" fill="#f5faff" font-size="67" font-family="Arial,sans-serif" font-weight="900" letter-spacing="-3">EXPO</text>
+<text x="48" y="341" fill="url(#light)" font-size="95" font-family="Arial,sans-serif" font-weight="900" letter-spacing="-5">TALENTO</text>
+<text x="49" y="438" fill="#ffffff" font-size="105" font-family="Arial,sans-serif" font-weight="900" letter-spacing="-5">2026</text>
+<path d="M50 474 H315" stroke="url(#light)" stroke-width="8" stroke-linecap="round"/>
+<text x="49" y="531" fill="#ddf7f1" font-size="25" font-family="Arial,sans-serif" letter-spacing="2">CREA · APRENDE · EMPRENDE</text>
+<!-- Four illustrated technical-skill badges -->
+<g transform="translate(65 618)">
+ <rect width="131" height="127" rx="27" fill="#ffffff" fill-opacity=".1" stroke="#ffffff" stroke-opacity=".25"/>
+ <path d="M45 50 60 34 78 52 65 65 85 85" stroke="url(#light)" stroke-width="11" stroke-linejoin="round" stroke-linecap="round" fill="none"/>
+ <text x="65" y="111" fill="#e5f8fc" font-family="Arial" font-size="14" text-anchor="middle">MECÁNICA</text>
+</g>
+<g transform="translate(215 618)">
+ <rect width="131" height="127" rx="27" fill="#ffffff" fill-opacity=".1" stroke="#ffffff" stroke-opacity=".25"/>
+ <path d="M33 70 94 38 103 49 42 81 Z" fill="none" stroke="#70ddcd" stroke-width="8" stroke-linejoin="round"/>
+ <path d="M55 30 55 81" stroke="#70ddcd" stroke-width="8" stroke-linecap="round"/>
+ <text x="65" y="111" fill="#e5f8fc" font-family="Arial" font-size="14" text-anchor="middle">MADERA</text>
+</g>
+<g transform="translate(365 618)">
+ <rect width="131" height="127" rx="27" fill="#ffffff" fill-opacity=".1" stroke="#ffffff" stroke-opacity=".25"/>
+ <path d="M73 25 43 65 68 65 54 93 97 47 73 47Z" fill="url(#light)"/>
+ <text x="65" y="111" fill="#e5f8fc" font-family="Arial" font-size="14" text-anchor="middle">ELECTRICIDAD</text>
+</g>
+<g transform="translate(515 618)">
+ <rect width="131" height="127" rx="27" fill="#ffffff" fill-opacity=".1" stroke="#ffffff" stroke-opacity=".25"/>
+ <path d="m65 30-17 10-17 2 8 18 8-3v35h36V57l8 3 8-18-17-2Z" fill="none" stroke="#70ddcd" stroke-width="6" stroke-linejoin="round"/>
+ <text x="65" y="111" fill="#e5f8fc" font-family="Arial" font-size="14" text-anchor="middle">CONFECCIÓN</text>
+</g>
+<path d="M50 811 H670" stroke="#b2d7e6" stroke-opacity=".29" stroke-width="2"/>
+<text x="49" y="855" fill="#d0f2f1" font-size="26" font-weight="bold" font-family="Arial,sans-serif" letter-spacing="2">CETPRO · HUARMEY</text>
+<text x="49" y="891" fill="#bad2df" font-size="21" font-family="Arial,sans-serif">Afiche de muestra · Fecha por definir</text>
+<text x="670" y="92" fill="#fbd16e" font-family="Arial" font-weight="bold" font-size="58" text-anchor="end">✦</text>
+</svg>

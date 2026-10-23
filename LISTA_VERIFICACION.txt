@@ -1,0 +1,15 @@
+CETPRO HUARMEY | LISTA DE VERIFICACION ANTES DE HABILITAR REGISTROS REALES
+
+[ ] Supabase conectado y SQL ejecutado sin errores
+[ ] Administrador creado en Supabase Auth y autorizado en admin_users
+[ ] Proyecto publicado en GitHub Pages con la URL gratis github.io
+[ ] Noticias e imágenes aprobadas y reemplazadas por contenido institucional
+[ ] Política de privacidad peruana revisada, aprobada y publicada
+[ ] Se hicieron pruebas con datos ficticios desde dos navegadores distintos
+[ ] Invitado no puede consultar solicitudes ni mensajes de otros usuarios
+[ ] Administrador sí puede ver los datos e introducir cambios persistentes
+[ ] Se verificó que los cupos no puedan sobrepasarse mediante envíos concurrentes
+[ ] Se instaló/activó una protección antispam para el formulario de contacto
+[ ] Se acordaron procedimientos de respaldo, retención y seguridad
+
+Hasta que todos estos puntos se cumplan, no recibas datos reales de estudiantes.
