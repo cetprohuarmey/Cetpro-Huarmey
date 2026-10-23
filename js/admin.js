@@ -251,6 +251,6 @@ document.addEventListener('error',ev=>{if(ev.target instanceof HTMLImageElement)
  const cloud=window.CETPRO_CLOUD;
  if(!cloud.configured){root.innerHTML='<main class="setup-notice"><h1>Falta conectar Supabase</h1><p>Configura <code>js/config.js</code> y ejecuta el SQL de la carpeta <code>database</code>. El panel no admite contraseñas de demostración.</p><a href="index.html">Volver al sitio</a></main>';return;}
  root.innerHTML='<main class="setup-notice"><h1>Conectando al administrador…</h1></main>';
- try{await cloud.loadPublic();await window.CETPRO_AUTH.restore();render();}
+ try{await Promise.all([cloud.loadPublic(),window.CETPRO_AUTH.restore()]);render();}
  catch(err){root.innerHTML='<main class="setup-notice"><h1>No se pudo conectar</h1><p>'+e(err.message)+'</p><p>Verifica Supabase y las políticas SQL.</p></main>';}
 })();
