@@ -159,15 +159,21 @@ function registerEvents(){
  const prog=document.getElementById('scrollProgress'),top=document.getElementById('goTop');
  const sc=()=>{const max=document.documentElement.scrollHeight-innerHeight; if(prog)prog.style.width=(max>0?Math.min(100,scrollY/max*100):0)+'%'; if(top)top.classList.toggle('visible',scrollY>500)};
  window.onscroll=sc;sc();top?.addEventListener('click',()=>scrollTo({top:0,behavior:'smooth'}));
- setTimeout(()=>launchPopup(),550);
+ if(window.CETPRO_CLOUD?.ready)setTimeout(()=>launchPopup(),550);
 }
 function render(scroll=true){data=read();const page=pageName();const routes={inicio:home,nosotros:about,programas:programs,matricula:matrícula,noticias:news,galeria:gallery,documentos:docs,bolsa:jobs,contacto:contact,privacidad:privacy,vida:()=>extras.page('vida',data),proyectos:()=>extras.page('proyectos',data),calendario:()=>extras.page('calendario',data),egresados:()=>extras.page('egresados',data),talleres:()=>extras.page('talleres',data),preguntas:()=>extras.page('preguntas',data)};root.innerHTML=chrome(page)+(routes[page]||home)()+footer()+extras.whatsapp(data);registerEvents();document.title=(page==='inicio'?'Inicio':page.charAt(0).toUpperCase()+page.slice(1))+' | CETPRO '+s().institution;if(scroll)window.scrollTo(0,0)}
 window.addEventListener('hashchange',()=>{filter='Todos';search='';render()});window.addEventListener('storage',()=>render(false));
 document.addEventListener('error',ev=>{if(ev.target instanceof HTMLImageElement){const im=ev.target;if(im.dataset.didFallback)return;im.dataset.didFallback='1';im.src=im.dataset.fallback||'assets/img/ilustracion-campus.svg';}},{capture:true});
 (async()=>{
  const cloud=window.CETPRO_CLOUD;
- root.innerHTML='<main class="setup-notice"><h1>Cargando página institucional…</h1></main>';
- if(!cloud.configured){render();const notice=document.createElement('aside');notice.className='cloud-warning';notice.textContent='Sitio pendiente de conexión a la base de datos: no envíes datos personales. Matrículas y consultas deshabilitadas.';document.body.prepend(notice);document.querySelector('#contactForm button[type=submit]')?.setAttribute('disabled','disabled');return;}
- try{await cloud.loadPublic();render();}
- catch(err){console.error(err);render();const notice=document.createElement('aside');notice.className='cloud-warning';notice.textContent='Servicio de datos no disponible: las matrículas y consultas están temporalmente deshabilitadas.';document.body.prepend(notice);document.querySelector('#contactForm button[type=submit]')?.setAttribute('disabled','disabled');}
+ if(cloud.cachedPublic){
+  // Muestra información pública ya visitada mientras se valida en segundo plano.
+  // No se permite enviar ningún formulario hasta obtener respuesta actual de Supabase.
+  render(false);
+ }else{
+  root.innerHTML='<main class="setup-notice"><h1>Cargando página institucional…</h1><p>Estamos consultando la información actualizada.</p></main>';
+ }
+ if(!cloud.configured){render(false);const notice=document.createElement('aside');notice.className='cloud-warning';notice.textContent='Sitio pendiente de conexión a la base de datos: no envíes datos personales. Matrículas y consultas deshabilitadas.';document.body.prepend(notice);document.querySelector('#contactForm button[type=submit]')?.setAttribute('disabled','disabled');return;}
+ try{await cloud.loadPublic();render(false);}
+ catch(err){console.error(err);if(!cloud.cachedPublic)render(false);const notice=document.createElement('aside');notice.className='cloud-warning';notice.textContent='Servicio de datos no disponible: las matrículas y consultas están temporalmente deshabilitadas.';document.body.prepend(notice);document.querySelector('#contactForm button[type=submit]')?.setAttribute('disabled','disabled');document.querySelector('#enrollmentForm button[type=submit]')?.setAttribute('disabled','disabled');}
 })();
