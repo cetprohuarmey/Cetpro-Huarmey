@@ -3,8 +3,7 @@
 let permitted=false;
 const cloud=window.CETPRO_CLOUD;
 async function restore(){
- if(!cloud.ready)return false;
- try{permitted=await cloud.isAdmin();if(permitted)await cloud.loadPrivate();return permitted}
+ try{permitted=await cloud.isAdmin();if(permitted)await cloud.loadPrivate(true);return permitted}
  catch(err){console.error('No se pudo verificar el usuario administrador:',err);permitted=false;return false}
 }
 function sessionValid(){return permitted}
@@ -14,7 +13,7 @@ async function signIn(email,password){
  if(result.error)throw Error('Correo electrónico o contraseña incorrectos.');
  permitted=await cloud.isAdmin();
  if(!permitted){await cloud.client.auth.signOut();return false;}
- await cloud.loadPrivate();return true;
+ await cloud.loadPrivate(true);return true;
 }
 async function signOut(){permitted=false;cloud.enrollments=[];cloud.messages=[];await cloud.client?.auth.signOut()}
 async function updatePassword(current,next,repeat){
