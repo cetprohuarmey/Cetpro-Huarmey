@@ -123,7 +123,7 @@ const esc=(input='')=>String(input??'').replace(/[&<>"']/g, c=>({'&':'&amp;','<'
 const uid=(prefix='id')=>prefix+'_'+Date.now().toString(36)+'_'+Math.random().toString(36).slice(2,7);
 function read(){
  const remote=window.CETPRO_CLOUD;
- const stored=remote?.ready&&remote.data?remote.data:{};
+ const stored=remote?.ready&&remote.data?remote.data:(remote?.cachedPublic||{});
  const o=structuredClone(defaults);
  o.settings={...o.settings,...(stored.settings||{})};
  for(const sub of ['popup','whatsapp','admission','community','pageText'])o.settings[sub]={...o.settings[sub],...(stored.settings?.[sub]||{})};
