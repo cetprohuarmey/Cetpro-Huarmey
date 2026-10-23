@@ -6,21 +6,34 @@ const key=String(cfg.supabasePublishableKey||'').trim();
 const configured=/^https:\/\/[a-z0-9-]+\.supabase\.co\/?$/i.test(url) && (/^sb_publishable_[a-zA-Z0-9_-]+$/.test(key)||/^eyJ[a-zA-Z0-9_.-]+$/.test(key));
 const client=configured && window.supabase?.createClient(url,key,{auth:{persistSession:true,autoRefreshToken:true,detectSessionInUrl:false}});
 const PUBLIC=['settings','programs','news','gallery','documents','jobs','staffYears','teachers','directors','historyGallery','achievements','partners','offers','projects','calendarEvents','alumni','faqs','tours'];
-const state={configured,ready:false,error:'',data:null,enrollments:[],messages:[],client};
+const CACHE_KEY='cetpro-public-content-v1:'+url;
+const CACHE_MAX_AGE=30*60*1000;
+function readCachedPublic(){
+ if(!configured)return null;
+ try{
+  const item=JSON.parse(localStorage.getItem(CACHE_KEY)||'null');
+  if(item?.version!==1||!Number.isFinite(item.savedAt)||Date.now()-item.savedAt>CACHE_MAX_AGE||item.savedAt>Date.now())return null;
+  return item.content&&typeof item.content==='object'&&!Array.isArray(item.content)?publicOnly(item.content):null;
+ }catch{return null;}
+}
+function saveCachedPublic(data){
+ try{localStorage.setItem(CACHE_KEY,JSON.stringify({version:1,savedAt:Date.now(),content:publicOnly(data)}));}catch{}
+}
+const state={configured,ready:false,error:'',data:null,cachedPublic:readCachedPublic(),enrollments:[],messages:[],client};
 function check(result){if(result.error)throw new Error(result.error.message||'Error al consultar Supabase');return result.data;}
 function publicOnly(v){return Object.fromEntries(PUBLIC.map(k=>[k,v[k]]).filter(([,v])=>v!==undefined));}
 async function loadPublic(){
  if(!client)throw Error('Configura Supabase en js/config.js para activar las funciones reales.');
  const doc=check(await client.from('site_content').select('content').eq('id','main').single());
  if(!doc||!doc.content||typeof doc.content!=='object')throw Error('Falta la fila main en site_content. Ejecuta database/supabase.sql.');
- state.data=doc.content;state.ready=true;state.error='';return state.data;
+ state.data=doc.content;state.ready=true;state.error='';state.cachedPublic=publicOnly(doc.content);saveCachedPublic(state.cachedPublic);return state.data;
 }
 async function saveContent(next){
  if(!state.ready)throw Error('La conexión a Supabase no está lista.');
  const payload=publicOnly(next);
  const changed=check(await client.from('site_content').update({content:payload,updated_at:new Date().toISOString()}).eq('id','main').select('id'));
  if(!Array.isArray(changed)||changed.length!==1)throw Error('No se guardó el contenido: verifica que tu usuario tenga permisos de administrador.');
- state.data=structuredClone(payload);
+ state.data=structuredClone(payload);state.cachedPublic=structuredClone(payload);saveCachedPublic(payload);
  return true;
 }
 async function isAdmin(){
@@ -29,8 +42,8 @@ async function isAdmin(){
  const record=check(await client.from('admin_users').select('user_id').eq('user_id',data.user.id).maybeSingle());
  return Boolean(record);
 }
-async function loadPrivate(){
- if(!await isAdmin())throw Error('Tu usuario no está autorizado como administrador.');
+async function loadPrivate(alreadyVerified=false){
+ if(!alreadyVerified&&!await isAdmin())throw Error('Tu usuario no está autorizado como administrador.');
  const [en,ms]=await Promise.all([client.from('enrollments').select('*').order('created_at',{ascending:false}).limit(1000),client.from('contact_messages').select('*').order('created_at',{ascending:false}).limit(1000)]);
  state.enrollments=check(en).map(x=>({...x,programId:x.program_id,createdAt:x.created_at}));
  state.messages=check(ms).map(x=>({...x,createdAt:x.created_at}));
